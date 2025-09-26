@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+body {
+	background: url("./assets/new-bg.webp") no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 100dvh;
+	width: 100%;
+	overflow: auto;
+}
+
+.light body {
+	background: url("./assets/new-light-bg.webp") no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+@layer {
+	@layer {
+		.glass {
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			color: #fff;
+		}
+
+		.light .glass {
+			background: rgba(50, 50, 50, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			color: #fff;
+		}
+		.glass-mod {
+			background: rgba(30, 41, 59, 0.314);
+			border: 1px solid rgba(30, 41, 59, 50);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			color: #fff;
+		}
+		.glass-head-btn {
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			color: #fff;
+		}
+	}
+}
