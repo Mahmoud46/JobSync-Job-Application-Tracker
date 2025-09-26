@@ -9,7 +9,7 @@ import {
 	LuUpload,
 	LuX,
 } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ThemeButton from "./ThemeButton";
 import { Context } from "../context/Context";
 import type { IContext } from "../interfaces/Context.interface";
@@ -28,6 +28,7 @@ export default function Header(): ReactNode {
 	const exportOptionsWindowRef = useRef<HTMLDivElement>(null);
 	const jsonFileInputRef = useRef<HTMLInputElement>(null);
 
+	const navigate = useNavigate();
 	useEffect(() => {
 		function handleClickOutside(event: MouseEvent) {
 			if (
@@ -65,17 +66,18 @@ export default function Header(): ReactNode {
 					<div
 						className={`${
 							isAddOptionsWindowOpen
-								? "bg-white text-gray-900"
+								? "bg-white text-gray-900 pointer-events-none"
 								: "glass-head-btn"
 						} p-3 rounded-full cursor-pointer`}
 						onClick={() => setIsAddOptionsWindowOpen((prev) => !prev)}
 					>
-						<LuPlus className="text-lg" />
+						{!isAddOptionsWindowOpen && <LuPlus className="text-lg" />}
+						{isAddOptionsWindowOpen && <LuX className="text-lg" />}
 					</div>
 					<div
 						className={`${
 							isExportOptionsWindowOpen
-								? "bg-white text-gray-900"
+								? "bg-white text-gray-900 pointer-events-none"
 								: "glass-head-btn"
 						} p-3 rounded-full cursor-pointer ${
 							jobsApplicationsController.jobs.length == 0
@@ -84,7 +86,8 @@ export default function Header(): ReactNode {
 						}`}
 						onClick={() => setIsExportOptionsWindowOpen((prev) => !prev)}
 					>
-						<LuFileOutput className="text-lg" />
+						{!isExportOptionsWindowOpen && <LuFileOutput className="text-lg" />}
+						{isExportOptionsWindowOpen && <LuX className="text-lg" />}
 					</div>
 					<ThemeButton />
 				</div>
@@ -92,64 +95,76 @@ export default function Header(): ReactNode {
 
 			{isAddOptionsWindowOpen && (
 				<div
-					className="absolute glass right-5 top-17 z-50 p-0.5 rounded-2xl w-[200px] flex flex-col gap-2"
+					className="absolute right-43 top-17 z-50 rounded-2xl flex flex-col gap-2"
 					ref={addOptionsWindowRef}
 				>
-					<div className="flex items-center justify-between text-sm">
-						<p className="px-2">Insert data</p>
-						<div
-							className="glass rounded-full -translate-x-0.5 translate-y-0.5  p-1 cursor-pointer"
-							onClick={() => setIsAddOptionsWindowOpen(false)}
-						>
-							<LuX />
-						</div>
-					</div>
 					<ul>
-						<Link
-							to={"job/new"}
-							className="flex items-center gap-2 text-sm py-2 px-2 transition duration-300 hover:bg-white hover:text-gray-900 cursor-pointer rounded-xl"
-						>
-							<LuFilePlus2 className="text-base" />
-							<p>New Application</p>
-						</Link>
 						<li
-							className="flex items-center gap-2 text-sm py-2 px-2 transition duration-300 hover:bg-white hover:text-gray-900 cursor-pointer rounded-xl"
-							onClick={() => jsonFileInputRef.current?.click()}
+							className="flex items-center group text-sm transition duration-300 cursor-pointer rounded-xl"
+							onClick={() => {
+								navigate("job/new");
+								setIsAddOptionsWindowOpen(false);
+							}}
 						>
-							<LuUpload className="text-base" />
-							<p>Import JSON</p>
+							<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+								New Application
+							</p>
+							<div className="glass p-0.5 rounded-full cursor-pointer">
+								<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuFilePlus2 className="text-lg" />
+								</div>
+							</div>
+						</li>
+						<li
+							className="flex items-center justify-end group text-sm transition duration-300 cursor-pointer rounded-xl"
+							onClick={() => {
+								jsonFileInputRef.current?.click();
+								setIsAddOptionsWindowOpen(false);
+							}}
+						>
+							<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+								Import JSON
+							</p>
+							<div className="glass p-0.5 rounded-full cursor-pointer">
+								<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuUpload className="text-lg" />
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>
 			)}
 			{isExportOptionsWindowOpen && (
 				<div
-					className="absolute glass right-5 top-17 z-50 p-0.5 rounded-2xl w-[200px] flex flex-col gap-2"
+					className="absolute right-5 top-17 z-50 rounded-2xl flex flex-col gap-2"
 					ref={exportOptionsWindowRef}
 				>
-					<div className="flex items-center justify-between text-sm">
-						<p className="px-2">Export data</p>
-						<div
-							className="glass rounded-full -translate-x-0.5 translate-y-0.5  p-1 cursor-pointer"
-							onClick={() => setIsExportOptionsWindowOpen(false)}
-						>
-							<LuX />
-						</div>
-					</div>
 					<ul>
 						<li
-							className="flex items-center gap-2 text-sm py-2 px-2 transition duration-300 hover:bg-white hover:text-gray-900 cursor-pointer rounded-xl pr-4"
+							className="flex items-center group text-sm transition duration-300 cursor-pointer rounded-xl"
 							onClick={() => jobsApplicationsController.exportDataAsJSON()}
 						>
-							<LuFileJson2 className="text-base" />
-							<p>Export JSON</p>
+							<div className="glass p-0.5 rounded-full cursor-pointer">
+								<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuFileJson2 className="text-lg" />
+								</div>
+							</div>
+							<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+								Export JSON
+							</p>
 						</li>
 						<li
-							className="flex items-center gap-2 text-sm py-2 px-2 transition duration-300 hover:bg-white hover:text-gray-900 cursor-pointer rounded-xl pr-4"
+							className="flex items-center group text-sm transition duration-300 cursor-pointer rounded-xl"
 							onClick={() => jobsApplicationsController.exportDataAsCSV()}
 						>
-							<LuFileSpreadsheet className="text-base" />
-							<p>Export CSV</p>
+							<div className="glass p-0.5 rounded-full cursor-pointer">
+								<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuFileSpreadsheet className="text-lg" />
+								</div>
+							</div>
+							<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+								Export CSV
+							</p>
 						</li>
 					</ul>
 				</div>
