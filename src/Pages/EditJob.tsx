@@ -179,6 +179,12 @@ export default function EditJob() {
 										className="p-2 rounded-full cursor-pointer transition duration-300 hover:bg-white hover:text-gray-900"
 										onClick={() => {
 											setApplicationDate(today);
+											setIsShowEditBtn(
+												today !=
+													jobsApplicationsController.getJobApplication(
+														id as string
+													).application_date
+											);
 										}}
 									>
 										<LuCalendarX />
