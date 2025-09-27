@@ -4,8 +4,10 @@ import {
 	LuBriefcaseBusiness,
 	LuCalendarPlus,
 	LuFilePen,
+	LuFileX,
 	LuLink,
 	LuNotebook,
+	LuPlus,
 	LuTrash,
 	LuX,
 } from "react-icons/lu";
@@ -191,7 +193,7 @@ export default function Job(): ReactNode {
 						"" && (
 						<div className="flex flex-col px-20 py-10 items-center justify-center gap-4">
 							<LuBookX className="text-4xl" />
-							<p className="text-sm">
+							<p className="text-sm text-center">
 								No notes have been inserted to this application yet.
 							</p>
 						</div>
@@ -200,7 +202,20 @@ export default function Job(): ReactNode {
 			)}
 
 			{!jobsApplicationsController.include(id as string) && (
-				<div className="glass">Not Found</div>
+				<div className="p-20 flex flex-col items-center justify-center">
+					<LuFileX className="text-4xl mb-4" />
+					<p className="text-sm text-center">
+						This application doesn’t seem to exist. Feel free to create a new
+						one to keep things organized.
+					</p>
+					<Link
+						to={"/job/new"}
+						className="flex items-center text-xs gap-2 bg-white w-fit text-gray-900 p-2 pr-3 cursor-pointer rounded-full mt-2"
+					>
+						<LuPlus className="text-sm" />
+						<span>New Application</span>
+					</Link>
+				</div>
 			)}
 		</div>
 	);
