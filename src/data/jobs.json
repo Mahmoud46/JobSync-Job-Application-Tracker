@@ -8,7 +8,7 @@
 			"status": "Applied",
 			"placement_type": "Remote",
 			"notes": "Strong React focus, waiting for recruiter response.",
-			"postLink": "https://technova.com/careers/frontend-dev"
+			"post_link": "https://technova.com/careers/frontend-dev"
 		},
 		{
 			"application_id": "app002",
@@ -18,7 +18,7 @@
 			"status": "Interviewing",
 			"placement_type": "Hybrid",
 			"notes": "Completed first technical round, next step HR.",
-			"postLink": "https://cloudcore.io/jobs/backend"
+			"post_link": "https://cloudcore.io/jobs/backend"
 		},
 		{
 			"application_id": "app003",
@@ -28,7 +28,7 @@
 			"status": "Offer",
 			"placement_type": "On-site",
 			"notes": "Offer received, negotiating compensation.",
-			"postLink": "https://insightai.ai/careers/data-scientist"
+			"post_link": "https://insightai.ai/careers/data-scientist"
 		},
 		{
 			"application_id": "app004",
@@ -38,7 +38,7 @@
 			"status": "Rejected",
 			"placement_type": "Remote",
 			"notes": "Rejected after portfolio review.",
-			"postLink": "https://designflow.co/jobs/uiux-designer"
+			"post_link": "https://designflow.co/jobs/uiux-designer"
 		},
 		{
 			"application_id": "app005",
@@ -48,7 +48,7 @@
 			"status": "Applied",
 			"placement_type": "Hybrid",
 			"notes": "Application submitted, awaiting response.",
-			"postLink": "https://buildsphere.dev/careers/fullstack"
+			"post_link": "https://buildsphere.dev/careers/fullstack"
 		},
 		{
 			"application_id": "app006",
@@ -58,7 +58,7 @@
 			"status": "Hired",
 			"placement_type": "On-site",
 			"notes": "Accepted offer, starting October.",
-			"postLink": "https://opsforge.com/jobs/devops"
+			"post_link": "https://opsforge.com/jobs/devops"
 		},
 		{
 			"application_id": "app007",
@@ -68,7 +68,7 @@
 			"status": "Applied",
 			"placement_type": "Remote",
 			"notes": "React Native skills highlighted in cover letter.",
-			"postLink": "https://appnation.jobs/mobile"
+			"post_link": "https://appnation.jobs/mobile"
 		},
 		{
 			"application_id": "app008",
@@ -78,7 +78,7 @@
 			"status": "Interviewing",
 			"placement_type": "Hybrid",
 			"notes": "Second round scheduled for next week.",
-			"postLink": "https://neuralworks.ai/jobs/ml-engineer"
+			"post_link": "https://neuralworks.ai/jobs/ml-engineer"
 		},
 		{
 			"application_id": "app009",
@@ -88,7 +88,7 @@
 			"status": "Rejected",
 			"placement_type": "On-site",
 			"notes": "Not selected after assessment test.",
-			"postLink": "https://infostream.com/careers/systems-analyst"
+			"post_link": "https://infostream.com/careers/systems-analyst"
 		},
 		{
 			"application_id": "app010",
@@ -98,7 +98,7 @@
 			"status": "Applied",
 			"placement_type": "Hybrid",
 			"notes": "Specialized in AWS and GCP deployments.",
-			"postLink": "https://skyscale.cloud/jobs/architect"
+			"post_link": "https://skyscale.cloud/jobs/architect"
 		},
 		{
 			"application_id": "app011",
@@ -108,7 +108,7 @@
 			"status": "Interviewing",
 			"placement_type": "Remote",
 			"notes": "Technical interview passed, HR round pending.",
-			"postLink": "https://securenet.org/jobs/cybersecurity"
+			"post_link": "https://securenet.org/jobs/cybersecurity"
 		},
 		{
 			"application_id": "app012",
@@ -118,7 +118,7 @@
 			"status": "Applied",
 			"placement_type": "On-site",
 			"notes": "Research background emphasized in CV.",
-			"postLink": "https://deepvision.ai/careers/research-scientist"
+			"post_link": "https://deepvision.ai/careers/research-scientist"
 		},
 		{
 			"application_id": "app013",
@@ -128,7 +128,7 @@
 			"status": "Offer",
 			"placement_type": "Hybrid",
 			"notes": "Offer accepted verbally, waiting for documents.",
-			"postLink": "https://innovexa.com/jobs/product-manager"
+			"post_link": "https://innovexa.com/jobs/product-manager"
 		},
 		{
 			"application_id": "app014",
@@ -138,7 +138,7 @@
 			"status": "Rejected",
 			"placement_type": "Remote",
 			"notes": "Did not clear automation test round.",
-			"postLink": "https://testpro.io/careers/qa-engineer"
+			"post_link": "https://testpro.io/careers/qa-engineer"
 		},
 		{
 			"application_id": "app015",
@@ -148,7 +148,7 @@
 			"status": "Applied",
 			"placement_type": "On-site",
 			"notes": "Oracle and PostgreSQL expertise emphasized.",
-			"postLink": "https://datalink.com/jobs/dba"
+			"post_link": "https://datalink.com/jobs/dba"
 		},
 		{
 			"application_id": "app016",
@@ -158,7 +158,7 @@
 			"status": "Interviewing",
 			"placement_type": "Remote",
 			"notes": "Coding task submitted, awaiting feedback.",
-			"postLink": "https://cognitron.ai/careers/product-engineer"
+			"post_link": "https://cognitron.ai/careers/product-engineer"
 		},
 		{
 			"application_id": "app017",
@@ -168,7 +168,7 @@
 			"status": "Applied",
 			"placement_type": "Hybrid",
 			"notes": "Unity and Unreal Engine experience highlighted.",
-			"postLink": "https://playforge.games/careers/game-dev"
+			"post_link": "https://playforge.games/careers/game-dev"
 		},
 		{
 			"application_id": "app018",
@@ -178,7 +178,7 @@
 			"status": "Applied",
 			"placement_type": "Remote",
 			"notes": "Strong background in financial systems.",
-			"postLink": "https://stratedge.biz/jobs/business-analyst"
+			"post_link": "https://stratedge.biz/jobs/business-analyst"
 		},
 		{
 			"application_id": "app019",
@@ -188,7 +188,7 @@
 			"status": "Hired",
 			"placement_type": "On-site",
 			"notes": "Joined earlier this month.",
-			"postLink": "https://netsolutions.com/jobs/network-engineer"
+			"post_link": "https://netsolutions.com/jobs/network-engineer"
 		},
 		{
 			"application_id": "app020",
@@ -198,7 +198,7 @@
 			"status": "Applied",
 			"placement_type": "Remote",
 			"notes": "Focused on API documentation experience.",
-			"postLink": "https://docuworks.io/careers/technical-writer"
+			"post_link": "https://docuworks.io/careers/technical-writer"
 		}
 	]
 }

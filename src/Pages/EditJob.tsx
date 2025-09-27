@@ -68,7 +68,7 @@ export default function EditJob() {
 					.placement_type
 			);
 			setJobPostLink(
-				jobsApplicationsController.getJobApplication(id as string).postLink ??
+				jobsApplicationsController.getJobApplication(id as string).post_link ??
 					""
 			);
 			setNote(
@@ -108,7 +108,7 @@ export default function EditJob() {
 									status: applicationStatus,
 									placement_type: placementType,
 									notes: note,
-									postLink: jobPostLink,
+									post_link: jobPostLink,
 								}
 							);
 							navigate("/");

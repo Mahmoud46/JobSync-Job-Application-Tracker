@@ -16,6 +16,8 @@ import type {
 	TPlacementType,
 } from "../interfaces/Data.interface";
 import { JobApplicationStatusIcon, JobPlacementIcon } from "../libs/icons";
+import { JobApplicationsTable } from "../components/JobApplicationsTable";
+import { DisplayViewListGrid } from "../components/DisplayViewListGrid";
 
 export default function Home(): ReactNode {
 	const { jobsApplicationsController, importDataAsJSON } = useContext(
@@ -30,6 +32,7 @@ export default function Home(): ReactNode {
 	>("Total");
 
 	const [searchText, setSearchText] = useState<string>("");
+	const [isGrid, setIsGrid] = useState<boolean>(true);
 
 	const jsonFileInputRef = useRef<HTMLInputElement>(null);
 	return (
@@ -103,27 +106,47 @@ export default function Home(): ReactNode {
 							onChange={(e) => setSearchText(e.target.value)}
 						/>
 					</div>
+					<DisplayViewListGrid isGrid={isGrid} setIsGrid={setIsGrid} />
 				</div>
 
 				{jobsApplicationsController.jobs.length > 0 && (
 					<>
 						{jobsApplicationsController.getStat(jobStatus).length > 0 && (
-							<div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-								{jobsApplicationsController
-									.getStat(jobStatus)
-									.filter(
-										(job) =>
-											(searchText == ""
-												? job
-												: job.job_title.includes(searchText)) &&
-											(jobPlacementCat == "Total"
-												? job
-												: job.placement_type == jobPlacementCat)
-									)
-									.map((job, i) => (
-										<JobApplicationCard job={job} key={i} />
-									))}
-							</div>
+							<>
+								{isGrid && (
+									<div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+										{jobsApplicationsController
+											.getStat(jobStatus)
+											.filter(
+												(job) =>
+													(searchText == ""
+														? job
+														: job.job_title.includes(searchText)) &&
+													(jobPlacementCat == "Total"
+														? job
+														: job.placement_type == jobPlacementCat)
+											)
+											.map((job, i) => (
+												<JobApplicationCard job={job} key={i} />
+											))}
+									</div>
+								)}
+								{!isGrid && (
+									<JobApplicationsTable
+										jobsApplications={jobsApplicationsController
+											.getStat(jobStatus)
+											.filter(
+												(job) =>
+													(searchText == ""
+														? job
+														: job.job_title.includes(searchText)) &&
+													(jobPlacementCat == "Total"
+														? job
+														: job.placement_type == jobPlacementCat)
+											)}
+									/>
+								)}
+							</>
 						)}
 						{jobsApplicationsController
 							.getStat(jobStatus)
@@ -141,9 +164,7 @@ export default function Home(): ReactNode {
 								<p className="text-sm max-w-[400px] text-center">
 									There are no{" "}
 									<span className="font-semibold">
-										{jobPlacementCat == "Total"
-											? ""
-											: jobPlacementCat.toLowerCase()}
+										{jobPlacementCat == "Total" ? "" : jobPlacementCat}
 									</span>{" "}
 									job applications currently{" "}
 									<>

@@ -63,7 +63,7 @@ export default function NewJob() {
 							status: applicationStatus,
 							placement_type: placementType,
 							notes: note,
-							postLink: jobPostLink,
+							post_link: jobPostLink,
 						});
 						navigate("/");
 					}}

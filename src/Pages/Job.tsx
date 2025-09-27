@@ -76,7 +76,7 @@ export default function Job(): ReactNode {
 							</p>
 						</div>
 
-						<div className="">
+						<div className="pr-4">
 							<div className="flex items-center gap-4 mt-2">
 								<p className="flex text-sm items-center gap-2">
 									<LuCalendarPlus />
@@ -109,23 +109,27 @@ export default function Job(): ReactNode {
 							</div>
 
 							{jobsApplicationsController.getJobApplication(id as string)
-								.postLink != "" && (
-								<p className="flex gap-2 items-center text-sm">
-									<LuLink />
-									<a
-										href={
-											jobsApplicationsController.getJobApplication(id as string)
-												.postLink
-										}
-										className="transition duration-300 hover:underline"
-									>
-										{
-											jobsApplicationsController.getJobApplication(id as string)
-												.postLink
-										}
-									</a>
-								</p>
-							)}
+								.post_link &&
+								jobsApplicationsController.getJobApplication(id as string)
+									.post_link != "" && (
+									<p className="flex gap-2 items-center text-sm">
+										<LuLink />
+										<a
+											href={
+												jobsApplicationsController.getJobApplication(
+													id as string
+												).post_link
+											}
+											className="transition duration-300 hover:underline"
+										>
+											{
+												jobsApplicationsController.getJobApplication(
+													id as string
+												).post_link
+											}
+										</a>
+									</p>
+								)}
 						</div>
 					</div>
 
