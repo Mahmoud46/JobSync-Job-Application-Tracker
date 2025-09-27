@@ -3,9 +3,9 @@ import {
 	LuBookX,
 	LuBriefcaseBusiness,
 	LuCalendarPlus,
+	LuFilePen,
 	LuLink,
 	LuNotebook,
-	LuPenLine,
 	LuTrash,
 	LuX,
 } from "react-icons/lu";
@@ -23,7 +23,7 @@ export default function Job(): ReactNode {
 	return (
 		<div className="fixed z-30 top-0 h-full w-full flex items-center justify-center -left-0">
 			{jobsApplicationsController.include(id as string) && (
-				<div className="glass w-ful p-4 pt-2 rounded-2xl overflow-auto h-[80dvh] flex flex-col gap-2 sm:w-[50%] sm:min-h-[500px] sm:h-fit">
+				<div className="glass w-ful p-4 pt-2 rounded-2xl overflow-auto flex flex-col gap-2 sm:w-[50%] ">
 					<div className="sticky top-0 z-40 flex w-full justify-between items-center">
 						<p className="flex items-center gap-2 text-sm">
 							<LuBriefcaseBusiness className="text-base" />
@@ -68,7 +68,7 @@ export default function Job(): ReactNode {
 										.job_title
 								}
 							</h1>
-							<p className="flex items-center gap-2 font-semibold">
+							<p className="flex items-center gap-2 text-lg">
 								{
 									jobsApplicationsController.getJobApplication(id as string)
 										.company_name
@@ -133,19 +133,24 @@ export default function Job(): ReactNode {
 						</div>
 					</div>
 
-					<div className="flex items-center gap-2">
+					<div className="flex items-center gap-1">
 						<Link
 							to={`/job/edit/${
 								jobsApplicationsController.getJobApplication(id as string)
 									.application_id
 							}`}
-							className="glass py-1 px-2 flex items-center gap-2 rounded-full text-xs"
+							className="flex items-center text-sm max-w-[2.25rem] overflow-hidden transition-all duration-300 group hover:max-w-[5rem]"
 						>
-							<LuPenLine className="text-sm" />
-							<span>Edit</span>
+							<div className="glass p-0.5 rounded-full">
+								<div className="p-1.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuFilePen className="text-base flex-none" />
+								</div>
+							</div>
+							<span className="glass p-1 px-2 rounded-full opacity-0 transition duration-400 group-hover:opacity-100">
+								Edit
+							</span>
 						</Link>
 						<div
-							className="py-1 px-2 flex items-center gap-2 rounded-full text-xs bg-white text-gray-900 cursor-pointer"
 							onClick={() => {
 								jobsApplicationsController.delete(
 									jobsApplicationsController.getJobApplication(id as string)
@@ -153,15 +158,22 @@ export default function Job(): ReactNode {
 								);
 								navigate("/");
 							}}
+							className="flex items-center text-sm max-w-[2.25rem] overflow-hidden transition-all duration-300 group hover:max-w-[8rem] cursor-pointer"
 						>
-							<LuTrash className="text-sm" />
-							<span>Delete</span>
+							<div className="glass p-0.5 rounded-full">
+								<div className="p-1.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+									<LuTrash className="text-base flex-none" />
+								</div>
+							</div>
+							<span className="glass p-1 px-2 rounded-full opacity-0 transition duration-400 group-hover:opacity-100">
+								Delete
+							</span>
 						</div>
 					</div>
 
 					{jobsApplicationsController.getJobApplication(id as string).notes !=
 						"" && (
-						<div className="glass flex-1 overflow-auto rounded-xl p-2 mt-1">
+						<div className="glass overflow-auto rounded-xl p-2 mt-1">
 							<p className="flex gap-2 items-center text-sm opacity-70">
 								<LuNotebook className="text-base" />
 								<span>Notes</span>

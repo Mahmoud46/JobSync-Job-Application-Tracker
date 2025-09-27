@@ -100,7 +100,7 @@ export default function Home(): ReactNode {
 						<LuSearch className="absolute text-sm sm:text-base opacity-70 top-1/2 -translate-y-1/2 left-2" />
 						<input
 							type="text"
-							placeholder="Search with job title"
+							placeholder="Search with job title, company name"
 							className="outline-0 p-2 pl-8"
 							value={searchText}
 							onChange={(e) => setSearchText(e.target.value)}
@@ -121,7 +121,12 @@ export default function Home(): ReactNode {
 												(job) =>
 													(searchText == ""
 														? job
-														: job.job_title.includes(searchText)) &&
+														: job.job_title
+																.toLowerCase()
+																.includes(searchText.toLowerCase()) ||
+														  job.company_name
+																.toLowerCase()
+																.includes(searchText.toLowerCase())) &&
 													(jobPlacementCat == "Total"
 														? job
 														: job.placement_type == jobPlacementCat)
@@ -139,7 +144,12 @@ export default function Home(): ReactNode {
 												(job) =>
 													(searchText == ""
 														? job
-														: job.job_title.includes(searchText)) &&
+														: job.job_title
+																.toLowerCase()
+																.includes(searchText.toLowerCase()) ||
+														  job.company_name
+																.toLowerCase()
+																.includes(searchText.toLowerCase())) &&
 													(jobPlacementCat == "Total"
 														? job
 														: job.placement_type == jobPlacementCat)

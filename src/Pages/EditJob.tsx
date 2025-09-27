@@ -47,6 +47,7 @@ export default function EditJob() {
 	const [placementType, setPlacementType] = useState<TPlacementType>("Remote");
 	const [jobPostLink, setJobPostLink] = useState<string>("");
 	const [note, setNote] = useState<string>("");
+	const [isShowEditBtn, setIsShowEditBtn] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (jobsApplicationsController.include(id as string)) {
@@ -123,6 +124,12 @@ export default function EditJob() {
 								value={jobTitle}
 								onChange={(e) => {
 									setJobTitle(e.target.value);
+									setIsShowEditBtn(
+										e.target.value !=
+											(jobsApplicationsController.getJobApplication(
+												id as string
+											).job_title ?? "")
+									);
 								}}
 								className="w-full p-2 pl-8 outline-0"
 							/>
@@ -137,6 +144,12 @@ export default function EditJob() {
 									required
 									onChange={(e) => {
 										setCompanyName(e.target.value);
+										setIsShowEditBtn(
+											e.target.value !=
+												(jobsApplicationsController.getJobApplication(
+													id as string
+												).company_name ?? "")
+										);
 									}}
 									className="w-full p-2 pl-8 outline-0"
 								/>
@@ -151,6 +164,12 @@ export default function EditJob() {
 										required
 										onChange={(e) => {
 											setApplicationDate(e.target.value);
+											setIsShowEditBtn(
+												e.target.value !=
+													(jobsApplicationsController.getJobApplication(
+														id as string
+													).application_date ?? "")
+											);
 										}}
 										className="w-full p-2 pl-8 outline-0"
 									/>
@@ -158,7 +177,9 @@ export default function EditJob() {
 								{applicationDate != today && (
 									<div
 										className="p-2 rounded-full cursor-pointer transition duration-300 hover:bg-white hover:text-gray-900"
-										onClick={() => setApplicationDate(today)}
+										onClick={() => {
+											setApplicationDate(today);
+										}}
 									>
 										<LuCalendarX />
 									</div>
@@ -175,6 +196,12 @@ export default function EditJob() {
 									onChange={(e) => {
 										setApplicationStatus(
 											e.target.value as TJobApplicationStatus
+										);
+										setIsShowEditBtn(
+											e.target.value !=
+												jobsApplicationsController.getJobApplication(
+													id as string
+												).status
 										);
 									}}
 									className="w-full p-2 pl-7 outline-0 cursor-pointer"
@@ -198,6 +225,12 @@ export default function EditJob() {
 									value={placementType}
 									onChange={(e) => {
 										setPlacementType(e.target.value as TPlacementType);
+										setIsShowEditBtn(
+											e.target.value !=
+												jobsApplicationsController.getJobApplication(
+													id as string
+												).placement_type
+										);
 									}}
 									className="w-full p-2 pl-7 outline-0 cursor-pointer"
 								>
@@ -218,6 +251,12 @@ export default function EditJob() {
 									value={jobPostLink}
 									onChange={(e) => {
 										setJobPostLink(e.target.value as TPlacementType);
+										setIsShowEditBtn(
+											e.target.value !=
+												(jobsApplicationsController.getJobApplication(
+													id as string
+												).post_link ?? "")
+										);
 									}}
 									className="w-full p-2 pl-8 outline-0"
 								/>
@@ -232,13 +271,29 @@ export default function EditJob() {
 								value={note}
 								onChange={(e) => {
 									setNote(e.target.value as TPlacementType);
+									setIsShowEditBtn(
+										e.target.value !=
+											(jobsApplicationsController.getJobApplication(
+												id as string
+											).notes ?? "")
+									);
 								}}
 								className="w-full p-2 pl-8 outline-0 h-25 resize-none"
 							/>
 						</div>
-						<button className="flex items-center text-xs gap-2 bg-white w-fit text-gray-900 p-2 pr-3 cursor-pointer rounded-full mt-2 self-end">
-							<LuPenLine className="text-sm" /> <span>Update Application</span>
-						</button>
+
+						{isShowEditBtn && (
+							<button className="flex items-center text-sm max-w-[2.25rem] overflow-hidden transition-all duration-300 group hover:max-w-[22rem] flex-row-reverse cursor-pointer self-end">
+								<div className="glass p-0.5 rounded-full">
+									<div className="p-1.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+										<LuPenLine className="text-lg flex-none" />
+									</div>
+								</div>
+								<span className="glass p-1 px-2 rounded-full opacity-0 transition duration-400 group-hover:opacity-100 w-max flex-none">
+									Update Application
+								</span>
+							</button>
+						)}
 					</form>
 				)}
 

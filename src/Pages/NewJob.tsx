@@ -188,8 +188,16 @@ export default function NewJob() {
 							className="w-full p-2 pl-8 outline-0 h-25 resize-none"
 						/>
 					</div>
-					<button className="flex items-center text-xs gap-2 bg-white w-fit text-gray-900 p-2 pr-3 cursor-pointer rounded-full mt-2 self-end">
-						<LuPlus className="text-sm" /> <span>Submit Application</span>
+
+					<button className="flex items-center text-sm max-w-[2.25rem] overflow-hidden transition-all duration-300 group hover:max-w-[22rem] flex-row-reverse cursor-pointer self-end">
+						<div className="glass p-0.5 rounded-full">
+							<div className="p-1.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
+								<LuPlus className="text-lg flex-none" />
+							</div>
+						</div>
+						<span className="glass p-1 px-2 rounded-full opacity-0 transition duration-400 group-hover:opacity-100 w-max flex-none">
+							Submit Application
+						</span>
 					</button>
 				</form>
 			</div>
