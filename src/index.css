@@ -7,12 +7,14 @@ body {
 	min-height: 100dvh;
 	width: 100%;
 	overflow: auto;
+	background-attachment: fixed;
 }
 
 .light body {
 	background: url("./assets/new-light-bg.webp") no-repeat;
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
 }
 
 @layer {
