@@ -6,7 +6,7 @@ export interface IJobApplication {
 	status: TJobApplicationStatus;
 	placement_type: TPlacementType;
 	notes: string;
-	postLink: string;
+	post_link: string;
 }
 
 export type TJobApplicationStatus =
