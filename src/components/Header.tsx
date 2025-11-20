@@ -4,7 +4,6 @@ import {
 	LuFileOutput,
 	LuFilePlus2,
 	LuFileSpreadsheet,
-	LuFileStack,
 	LuPlus,
 	LuUpload,
 	LuX,
@@ -13,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ThemeButton from "./ThemeButton";
 import { Context } from "../context/Context";
 import type { IContext } from "../interfaces/Context.interface";
+import logo from "../assets/jobsync.svg";
 
 export default function Header(): ReactNode {
 	const { jobsApplicationsController, importDataAsJSON } = useContext(
@@ -58,8 +58,11 @@ export default function Header(): ReactNode {
 					to={"/"}
 					className="flex gap-2 p-2 cursor-pointer pl-4 items-center"
 				>
-					<LuFileStack className="text-xl" />
-					<p className="text-lg">JobSync</p>
+					<img src={logo} alt="jobsync" className="h-5" />
+					<p className="text-lg font-semibold">
+						<span>Job</span>
+						<span className="italic">Sync</span>{" "}
+					</p>
 				</Link>
 
 				<div className="flex gap-2 items-center">
