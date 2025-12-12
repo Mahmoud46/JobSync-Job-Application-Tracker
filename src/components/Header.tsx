@@ -52,7 +52,7 @@ export default function Header(): ReactNode {
 	}, []);
 
 	return (
-		<div className="sticky top-0 p-2 z-50 sm:px-8 sm:py-4">
+		<div className="sticky top-0 p-2 z-50 sm:px-8 sm:py-3">
 			<div className="glass rounded-full flex justify-between items-center p-1">
 				<Link
 					to={"/"}

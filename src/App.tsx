@@ -10,7 +10,7 @@ export default function App(): ReactNode {
 	return (
 		<>
 			<Header />
-			<div className="p-2 relative sm:px-8 sm:pb-4">
+			<div className="relative px-2 pb-2 sm:px-8 sm:pb-4">
 				<Routes>
 					<Route path="/" element={<Home />}>
 						<Route path="job/:id" element={<Job />} />
