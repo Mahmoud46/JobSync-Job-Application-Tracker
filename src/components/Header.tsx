@@ -85,7 +85,7 @@ const ExportOptionsWindow = ({
 	<>
 		{isExportOptionsWindowOpen && (
 			<div
-				className="absolute right-0 sm:right-5 top-17 z-50 rounded-2xl flex flex-col gap-2"
+				className="absolute -right-1 sm:right-5 top-17 z-50 rounded-2xl flex flex-col gap-2"
 				ref={exportOptionsWindowRef}
 			>
 				<ul>
