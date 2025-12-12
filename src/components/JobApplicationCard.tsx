@@ -56,6 +56,12 @@ export default function JobApplicationCard({
 				</div>
 			</div>
 			<div className="flex glass p-0.5 rounded-full flex-col">
+				<Link
+					to={`job/${job.application_id}`}
+					className="p-2 rounded-full cursor-pointer text-base w-fit transition duration-300 hover:bg-white hover:text-gray-900 hover:-rotate-45"
+				>
+					<LuArrowRight />
+				</Link>
 				{job.post_link && job.post_link != "" && (
 					<a
 						href={job.post_link}
@@ -76,12 +82,6 @@ export default function JobApplicationCard({
 				>
 					<LuTrash />
 				</div>
-				<Link
-					to={`job/${job.application_id}`}
-					className="p-2 rounded-full cursor-pointer text-base w-fit transition duration-300 hover:bg-white hover:text-gray-900 hover:-rotate-45"
-				>
-					<LuArrowRight />
-				</Link>
 			</div>
 		</div>
 	);

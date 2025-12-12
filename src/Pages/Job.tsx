@@ -25,7 +25,7 @@ export default function Job(): ReactNode {
 	return (
 		<div className="fixed z-30 top-0 h-full w-full flex items-center justify-center -left-0">
 			{jobsApplicationsController.include(id as string) && (
-				<div className="glass w-ful p-4 pt-2 rounded-2xl overflow-auto flex flex-col gap-2 sm:w-[50%] ">
+				<div className="glass w-ful p-4 pt-2 rounded-2xl overflow-auto flex flex-col gap-2 w-[95%] sm:w-[50%] ">
 					<div className="sticky top-0 z-40 flex w-full justify-between items-center">
 						<p className="flex items-center gap-2 text-sm">
 							<LuBriefcaseBusiness className="text-base" />
