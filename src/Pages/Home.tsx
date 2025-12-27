@@ -37,7 +37,7 @@ export default function Home(): ReactNode {
 	const jsonFileInputRef = useRef<HTMLInputElement>(null);
 	return (
 		<>
-			<div className="glass rounded-2xl p-2 md:p-4 flex flex-col gap-2 md:gap-4 min-h-[95dvh]">
+			<div className="glass rounded-2xl p-2 md:p-4 flex flex-col gap-2 md:gap-4 min-h-[90dvh]">
 				<div className="flex flex-col gap-1">
 					<h1 className="text-3xl font-semibold">My Job Applications</h1>
 					<p className="text-base">

@@ -1,6 +1,6 @@
 import { useContext, type ReactNode } from "react";
 import type { IJobApplication } from "../interfaces/Data.interface";
-import { LuArrowRight, LuFilePen, LuTrash } from "react-icons/lu";
+import { LuFilePen, LuTrash } from "react-icons/lu";
 import { Context } from "../context/Context";
 import type { IContext } from "../interfaces/Context.interface";
 import { Link } from "react-router-dom";
