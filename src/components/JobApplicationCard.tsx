@@ -31,7 +31,7 @@ export default function JobApplicationCard({
 			<div className="p-2 pr-2 flex-1">
 				<div className="flex items-center gap-4">
 					<p
-						className={`flex gap-1 items-center text-xs sm:text-sm ${
+						className={`flex text-sm items-center gap-2 ${
 							jobApplicationStatusColor[job.status]
 						}`}
 					>
