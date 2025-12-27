@@ -7,3 +7,15 @@ export const toggleTheme = (): void => {
 		JSON.stringify(!root.classList.contains("light"))
 	);
 };
+
+export const urlParser = (url: string): string => {
+	if (url.includes("linkedin")) return "LinkedIn Job Post Link";
+	else return "Job Post Link";
+};
+
+export const shortDateParser = (date: string): string =>
+	new Date(date).toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});

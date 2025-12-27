@@ -1,5 +1,6 @@
 import type {
 	TJobApplicationStatus,
+	TJobType,
 	TPlacementType,
 } from "../interfaces/Data.interface";
 
@@ -23,4 +24,11 @@ export const jobPlacementType: TPlacementType[] = [
 	"Remote",
 	"On-site",
 	"Hybrid",
+];
+
+export const JOB_TYPES: TJobType[] = [
+	"Full-time",
+	"Contract",
+	"Part-time",
+	"Internship",
 ];

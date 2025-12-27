@@ -5,7 +5,7 @@ import {
 	LuCalendarPlus,
 	LuCalendarX,
 	LuFilePlus2,
-	LuLink,
+	LuMapPin,
 	LuNotebookPen,
 	LuPlus,
 	LuX,
@@ -13,13 +13,20 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import type {
 	TJobApplicationStatus,
+	TJobType,
 	TPlacementType,
 } from "../interfaces/Data.interface";
-import { JobApplicationStatusIcon, JobPlacementIcon } from "../libs/icons";
+import {
+	JobApplicationStatusIcon,
+	JobPlacementIcon,
+	JobTypeIcon,
+	URLIcon,
+} from "../libs/icons";
 import { Context } from "../context/Context";
 import type { IContext } from "../interfaces/Context.interface";
 import { nanoid } from "nanoid";
 import {
+	JOB_TYPES,
 	jobApplicationStatusOptions,
 	jobPlacementType,
 } from "../constants/constants";
@@ -36,6 +43,8 @@ export default function NewJob() {
 		useState<TJobApplicationStatus>("Applied");
 	const [placementType, setPlacementType] = useState<TPlacementType>("Remote");
 	const [jobPostLink, setJobPostLink] = useState<string>("");
+	const [companyLocation, setCompanyLocation] = useState<string>("");
+	const [jobType, setJobType] = useState<TJobType>("Full-time");
 	const [note, setNote] = useState<string>("");
 
 	return (
@@ -64,6 +73,8 @@ export default function NewJob() {
 							placement_type: placementType,
 							notes: note,
 							post_link: jobPostLink,
+							job_type: jobType,
+							company_location: companyLocation,
 						});
 						navigate("/");
 					}}
@@ -95,6 +106,19 @@ export default function NewJob() {
 								className="w-full p-2 pl-8 outline-0"
 							/>
 						</div>
+						<div className="glass relative rounded-full text-sm w-full sm:flex-1">
+							<LuMapPin className="opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base" />
+							<input
+								type="text"
+								placeholder="Company Location"
+								value={companyLocation}
+								required
+								onChange={(e) => {
+									setCompanyLocation(e.target.value);
+								}}
+								className="w-full p-2 pl-8 outline-0"
+							/>
+						</div>
 						<div className="flex gap-1 items-center flex-1">
 							<div className="glass relative rounded-full text-sm w-full">
 								<LuCalendarPlus className="opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base" />
@@ -118,7 +142,9 @@ export default function NewJob() {
 								</div>
 							)}
 						</div>
-						<div className="glass relative rounded-full text-sm flex-1 pr-2">
+					</div>
+					<div className="flex gap-2 items-center">
+						<div className="glass relative rounded-full text-sm pr-2">
 							<JobApplicationStatusIcon
 								applicationStatus={applicationStatus}
 								className={`opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base`}
@@ -138,8 +164,6 @@ export default function NewJob() {
 								))}
 							</select>
 						</div>
-					</div>
-					<div className="flex gap-2 items-center">
 						<div className="glass relative rounded-full text-sm pr-2">
 							<JobPlacementIcon
 								jobPlacementType={placementType}
@@ -160,8 +184,29 @@ export default function NewJob() {
 								))}
 							</select>
 						</div>
+						<div className="glass relative rounded-full text-sm pr-2">
+							<JobTypeIcon
+								jobType={jobType}
+								className={`opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base`}
+							/>
+							<select
+								required
+								value={jobType}
+								onChange={(e) => {
+									setJobType(e.target.value as TJobType);
+								}}
+								className="w-full p-2 pl-7 outline-0 cursor-pointer"
+							>
+								{JOB_TYPES.map((st, i) => (
+									<option key={i} value={st} className="text-gray-900">
+										{st}
+									</option>
+								))}
+							</select>
+						</div>
 						<div className="glass relative rounded-full text-sm flex-1">
-							<LuLink
+							<URLIcon
+								url={jobPostLink}
 								className={`opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base`}
 							/>
 							<input

@@ -7,6 +7,8 @@ export interface IJobApplication {
 	placement_type: TPlacementType;
 	notes: string;
 	post_link: string;
+	job_type?: TJobType;
+	company_location?: string;
 }
 
 export type TJobApplicationStatus =
@@ -17,3 +19,4 @@ export type TJobApplicationStatus =
 	| "Hired";
 
 export type TPlacementType = "Remote" | "On-site" | "Hybrid";
+export type TJobType = "Internship" | "Part-time" | "Full-time" | "Contract";

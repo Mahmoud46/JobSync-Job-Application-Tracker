@@ -37,7 +37,7 @@ export default function Home(): ReactNode {
 	const jsonFileInputRef = useRef<HTMLInputElement>(null);
 	return (
 		<>
-			<div className="glass rounded-2xl p-2 md:p-4 flex flex-col gap-2 md:gap-4 min-h-[85dvh]">
+			<div className="glass rounded-2xl p-2 md:p-4 flex flex-col gap-2 md:gap-4 min-h-[95dvh]">
 				<div className="flex flex-col gap-1">
 					<h1 className="text-3xl font-semibold">My Job Applications</h1>
 					<p className="text-base">
@@ -52,6 +52,16 @@ export default function Home(): ReactNode {
 							: ""
 					}`}
 				>
+					<div className="glass rounded-full text-xs sm:text-sm relative">
+						<LuSearch className="absolute text-sm sm:text-base opacity-70 top-1/2 -translate-y-1/2 left-2" />
+						<input
+							type="text"
+							placeholder="Search with job title, company name"
+							className="outline-0 p-2 pl-8"
+							value={searchText}
+							onChange={(e) => setSearchText(e.target.value)}
+						/>
+					</div>
 					<div className="glass w-fit text-xs sm:text-sm rounded-full relative pr-1.5 flex items-center">
 						<JobApplicationStatusIcon
 							applicationStatus={jobStatus}
@@ -95,16 +105,6 @@ export default function Home(): ReactNode {
 								</option>
 							))}
 						</select>
-					</div>
-					<div className="glass rounded-full text-xs sm:text-sm relative">
-						<LuSearch className="absolute text-sm sm:text-base opacity-70 top-1/2 -translate-y-1/2 left-2" />
-						<input
-							type="text"
-							placeholder="Search with job title, company name"
-							className="outline-0 p-2 pl-8"
-							value={searchText}
-							onChange={(e) => setSearchText(e.target.value)}
-						/>
 					</div>
 					<DisplayViewListGrid isGrid={isGrid} setIsGrid={setIsGrid} />
 				</div>

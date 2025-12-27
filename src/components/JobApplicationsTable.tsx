@@ -1,10 +1,11 @@
 import { useContext, type ReactNode } from "react";
 import type { IJobApplication } from "../interfaces/Data.interface";
-import { LuArrowRight, LuFilePen, LuLink, LuTrash } from "react-icons/lu";
+import { LuArrowRight, LuFilePen, LuTrash } from "react-icons/lu";
 import { Context } from "../context/Context";
 import type { IContext } from "../interfaces/Context.interface";
 import { Link } from "react-router-dom";
 import { jobApplicationStatusColor } from "../constants/constants";
+import { URLIcon } from "../libs/icons";
 
 export function JobApplicationsTable({
 	jobsApplications,
@@ -27,6 +28,9 @@ export function JobApplicationsTable({
 									Company name
 								</th>
 								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium">
+									Location
+								</th>
+								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium">
 									Status
 								</th>
 								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium">
@@ -34,6 +38,9 @@ export function JobApplicationsTable({
 								</th>
 								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium">
 									Placement type
+								</th>
+								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium">
+									Job type
 								</th>
 								<th className="px-4 py-2 text-left text-xs opacity-70 font-medium"></th>
 							</tr>
@@ -46,6 +53,9 @@ export function JobApplicationsTable({
 									</td>
 									<td className="px-4 py-2 text-sm text-white">
 										{job.company_name}
+									</td>
+									<td className="px-4 py-2 text-sm text-white">
+										{job.company_location}
 									</td>
 									<td
 										className={`px-4 py-2 text-sm ${
@@ -67,6 +77,9 @@ export function JobApplicationsTable({
 									<td className="px-4 py-2 text-sm text-white">
 										{job.placement_type}
 									</td>
+									<td className="px-4 py-2 text-sm text-white">
+										{job.job_type}
+									</td>
 
 									<td className="px-4 py-2 text-sm text-white transition duration-300 hover:underline">
 										<div className="flex glass w-fit rounded-full p-0.5">
@@ -75,7 +88,7 @@ export function JobApplicationsTable({
 													href={job.post_link}
 													className="cursor-pointer p-2 w-fit rounded-full transition duration-300 hover:bg-white hover:text-gray-900"
 												>
-													<LuLink className="text-base" />
+													<URLIcon url={job.post_link} className="text-base" />
 												</a>
 											)}
 											<Link
