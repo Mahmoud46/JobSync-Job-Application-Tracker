@@ -1,7 +1,6 @@
 import type { IJobApplication, TJobType } from "../interfaces/Data.interface";
 import { Link } from "react-router-dom";
 import {
-	LuArrowRight,
 	LuBriefcaseBusiness,
 	LuCalendarPlus,
 	LuFilePen,
@@ -28,17 +27,17 @@ export default function JobApplicationCard({
 	const { jobsApplicationsController } = useContext(Context) as IContext;
 	return (
 		<div className="glass p-1 rounded-xl rounded-br-3xl flex items-start flex-col">
-			<div className="p-2 pr-2 flex-1">
+			<Link to={`job/${job.application_id}`} className="p-2 pr-2 flex-1">
 				<div className="flex items-center gap-4">
 					<p
-						className={`flex text-sm items-center gap-2 ${
+						className={`flex text-sm items-center gap-1 ${
 							jobApplicationStatusColor[job.status]
 						}`}
 					>
 						<JobApplicationStatusIcon applicationStatus={job.status} />
 						<span>{job.status}</span>
 					</p>
-					<p className="flex text-sm items-center gap-2">
+					<p className="flex text-sm items-center gap-1">
 						<LuCalendarPlus />
 						<span>{shortDateParser(job.application_date)}</span>
 					</p>
@@ -74,15 +73,9 @@ export default function JobApplicationCard({
 						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 
-			<div className="flex glass p-0.5 rounded-full self-end flex-row-reverse">
-				<Link
-					to={`job/${job.application_id}`}
-					className="p-2 rounded-full cursor-pointer text-base w-fit transition duration-300 hover:bg-white hover:text-gray-900 hover:-rotate-45"
-				>
-					<LuArrowRight />
-				</Link>
+			<div className="flex glass p-0.5 rounded-full self-end">
 				{job.post_link && job.post_link != "" && (
 					<a
 						href={job.post_link}

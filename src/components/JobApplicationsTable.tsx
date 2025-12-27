@@ -49,36 +49,46 @@ export function JobApplicationsTable({
 							{jobsApplications.map((job, i) => (
 								<tr key={i}>
 									<td className="px-4 py-2 text-sm text-white max-w-[200px] font-semibold">
-										{job.job_title}
+										<Link to={`job/${job.application_id}`}>
+											{job.job_title}
+										</Link>
 									</td>
 									<td className="px-4 py-2 text-sm text-white">
-										{job.company_name}
+										<Link to={`job/${job.application_id}`}>
+											{job.company_name}
+										</Link>
 									</td>
 									<td className="px-4 py-2 text-sm text-white">
-										{job.company_location}
+										<Link to={`job/${job.application_id}`}>
+											{job.company_location}
+										</Link>
 									</td>
 									<td
 										className={`px-4 py-2 text-sm ${
 											jobApplicationStatusColor[job.status]
 										}`}
 									>
-										{job.status}
+										<Link to={`job/${job.application_id}`}>{job.status}</Link>
 									</td>
 									<td className="px-4 py-2 text-sm">
-										{new Date(job.application_date).toLocaleDateString(
-											"en-US",
-											{
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											}
-										) ?? "_"}
+										<Link to={`job/${job.application_id}`}>
+											{new Date(job.application_date).toLocaleDateString(
+												"en-US",
+												{
+													year: "numeric",
+													month: "short",
+													day: "numeric",
+												}
+											) ?? "_"}
+										</Link>
 									</td>
 									<td className="px-4 py-2 text-sm text-white">
-										{job.placement_type}
+										<Link to={`job/${job.application_id}`}>
+											{job.placement_type}
+										</Link>
 									</td>
 									<td className="px-4 py-2 text-sm text-white">
-										{job.job_type}
+										<Link to={`job/${job.application_id}`}>{job.job_type}</Link>
 									</td>
 
 									<td className="px-4 py-2 text-sm text-white transition duration-300 hover:underline">
@@ -105,12 +115,6 @@ export function JobApplicationsTable({
 											>
 												<LuTrash className="text-base" />
 											</div>
-											<Link
-												to={`job/${job.application_id}`}
-												className="cursor-pointer p-2 w-fit rounded-full transition duration-300 hover:bg-white hover:text-gray-900 hover:-rotate-45"
-											>
-												<LuArrowRight className="text-base" />
-											</Link>
 										</div>
 									</td>
 								</tr>

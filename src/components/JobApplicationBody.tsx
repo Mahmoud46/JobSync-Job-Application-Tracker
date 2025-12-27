@@ -29,7 +29,7 @@ export function JobApplicationBody({
 }) {
 	const navigate = useNavigate();
 	return (
-		<div className="glass w-ful p-4 pt-2 rounded-2xl overflow-auto flex flex-col gap-2 w-[95%] sm:w-[50%] ">
+		<div className="glass w-ful p-4 pt-2 rounded-2xl flex flex-col gap-2 w-[95%] md:w-[50%] max-h-[80dvh] overflow-auto">
 			<div className="sticky top-0 z-40 flex w-full justify-between items-center">
 				<p className="flex items-center gap-2 text-sm">
 					<LuBriefcaseBusiness className="text-base" />
