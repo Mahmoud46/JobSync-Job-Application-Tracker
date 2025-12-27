@@ -44,7 +44,7 @@ export default function JobApplicationCard({
 					</p>
 				</div>
 				<div className="flex items-start gap-2">
-					<div className="flex-none flex bg-white/10 backdrop-blur-sm p-3 rounded-full mt-2">
+					<div className="flex-none flex glass p-3 rounded-full mt-2">
 						<LuBriefcaseBusiness className="text-3xl" />
 					</div>
 					<div className="flex flex-col">
