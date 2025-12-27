@@ -63,7 +63,7 @@ export function JobApplicationBody({
 						<LuBriefcaseBusiness className="text-5xl" />
 					</div>
 					<div className="flex flex-wrap items-start flex-1">
-						<div className="flex flex-col">
+						<div className="flex flex-col flex-1">
 							<h1 className="text-3xl pr-4">{jobApplication.job_title}</h1>
 							<p className="flex items-center gap-2 text-lg">
 								{jobApplication.company_name}
