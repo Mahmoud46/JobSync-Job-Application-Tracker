@@ -166,9 +166,9 @@ export default function Header(): ReactNode {
 					className="flex gap-2 p-2 cursor-pointer pl-4 items-center"
 				>
 					<img src={logo} alt="jobsync" className="h-5" />
-					<p className="text-lg font-semibold">
-						<span>Job</span>
-						<span className="italic">Sync</span>{" "}
+					<p className="text-lg font-semibold poppins">
+						<span className="font-light">Job</span>
+						<span>Sync</span>{" "}
 					</p>
 				</Link>
 
