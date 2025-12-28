@@ -59,7 +59,7 @@ src/
 ├── assets/
 ├── classes/
 |   └── Jobs.class.tsx
-├── components/        # Reusable UI components (Cards, Forms, Tables, etc.)
+├── components/        # Reusable UI components
 ├── constants/
 ├── context/     # Context API for global state management
 ├── interfaces/
