@@ -52,12 +52,12 @@ export default function Home(): ReactNode {
 							: ""
 					}`}
 				>
-					<div className="glass rounded-full text-xs sm:text-sm relative">
-						<LuSearch className="absolute text-sm sm:text-base opacity-70 top-1/2 -translate-y-1/2 left-2" />
+					<div className="glass rounded-full text-xs sm:text-sm relative flex-1 min-w-[100px]">
+						<LuSearch className="absolute flex-none text-sm sm:text-base opacity-70 top-1/2 -translate-y-1/2 left-2" />
 						<input
 							type="text"
-							placeholder="Search with job title, company name"
-							className="outline-0 p-2 pl-8"
+							placeholder="Search with job title, company"
+							className="outline-0 p-2 pl-8 w-full"
 							value={searchText}
 							onChange={(e) => setSearchText(e.target.value)}
 						/>
@@ -68,7 +68,7 @@ export default function Home(): ReactNode {
 							className="text-sm sm:text-base absolute left-2 top-1/2 -translate-y-1/2 opacity-70"
 						/>
 						<select
-							className="outline-0 cursor-pointer pl-8 py-2 pr-2"
+							className="outline-0 cursor-pointer pl-8 py-2 pr-2 max-w-[80px]"
 							onChange={(e) =>
 								setJobStatus(e.target.value as "Total" | TJobApplicationStatus)
 							}
@@ -90,7 +90,7 @@ export default function Home(): ReactNode {
 							className="text-sm sm:text-base absolute left-2 top-1/2 -translate-y-1/2 opacity-70"
 						/>
 						<select
-							className="outline-0 cursor-pointer pl-8 py-2 pr-2"
+							className="outline-0 cursor-pointer pl-8 py-2 pr-2 max-w-[80px]"
 							onChange={(e) =>
 								setJobPlacementCat(e.target.value as "Total" | TPlacementType)
 							}

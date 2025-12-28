@@ -161,7 +161,7 @@ export default function UpdateForm({
 					)}
 				</div>
 			</div>
-			<div className="flex gap-2 items-center">
+			<div className="flex gap-2 items-center flex-wrap">
 				<div className="glass relative rounded-full text-sm pr-2">
 					<JobApplicationStatusIcon
 						applicationStatus={applicationStatus}
@@ -227,7 +227,7 @@ export default function UpdateForm({
 						))}
 					</select>
 				</div>
-				<div className="glass relative rounded-full text-sm flex-1">
+				<div className="glass relative rounded-full text-sm flex-1 min-w-[50px]">
 					<URLIcon
 						url={jobPostLink}
 						className={`opacity-70 absolute left-2 top-1/2 -translate-y-1/2 text-base`}

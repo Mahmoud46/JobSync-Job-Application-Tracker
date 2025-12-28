@@ -49,7 +49,7 @@ export default function NewJob() {
 
 	return (
 		<div className="fixed z-30 top-0 h-full w-full flex items-center justify-center -left-0">
-			<div className="glass p-2 rounded-2xl w-full max-h-[500px] overflow-auto flex flex-col gap-2 sm:w-[50%]">
+			<div className="glass p-2 rounded-2xl w-full max-h-[600px] overflow-auto flex flex-col gap-2 sm:w-[50%]">
 				<div className="sticky top-0 z-40 flex w-full justify-between items-start">
 					<h1 className="flex items-center gap-2 text-lg p-2">
 						<LuFilePlus2 className="text-xl" />
@@ -143,7 +143,7 @@ export default function NewJob() {
 							)}
 						</div>
 					</div>
-					<div className="flex gap-2 items-center">
+					<div className="flex gap-2 items-center flex-wrap">
 						<div className="glass relative rounded-full text-sm pr-2">
 							<JobApplicationStatusIcon
 								applicationStatus={applicationStatus}

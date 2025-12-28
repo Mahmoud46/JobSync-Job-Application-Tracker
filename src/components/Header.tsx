@@ -42,7 +42,7 @@ const AddOptionsWindow = ({
 							setIsAddOptionsWindowOpen(false);
 						}}
 					>
-						<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+						<p className="glass p-3 py-2 rounded-full opacity-100 md:opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
 							New Application
 						</p>
 						<div className="glass p-0.5 rounded-full cursor-pointer">
@@ -58,7 +58,7 @@ const AddOptionsWindow = ({
 							setIsAddOptionsWindowOpen(false);
 						}}
 					>
-						<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+						<p className="glass p-3 py-2 rounded-full opacity-100 md:opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
 							Import JSON
 						</p>
 						<div className="glass p-0.5 rounded-full cursor-pointer">
@@ -85,7 +85,7 @@ const ExportOptionsWindow = ({
 	<>
 		{isExportOptionsWindowOpen && (
 			<div
-				className="absolute -right-1 sm:right-5 top-17 z-50 rounded-2xl flex flex-col gap-2"
+				className="absolute right-25 sm:right-30 top-17 z-50 rounded-2xl flex flex-col gap-2"
 				ref={exportOptionsWindowRef}
 			>
 				<ul>
@@ -93,27 +93,27 @@ const ExportOptionsWindow = ({
 						className="flex items-center group text-sm transition duration-300 cursor-pointer rounded-xl"
 						onClick={() => jobsApplicationsController.exportDataAsJSON()}
 					>
+						<p className="glass p-3 py-2 rounded-full opacity-100 md:opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+							Export JSON
+						</p>
 						<div className="glass p-0.5 rounded-full cursor-pointer">
 							<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
 								<LuFileJson2 className="text-lg" />
 							</div>
 						</div>
-						<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
-							Export JSON
-						</p>
 					</li>
 					<li
-						className="flex items-center group text-sm transition duration-300 cursor-pointer rounded-xl"
+						className="flex items-center justify-end group text-sm transition duration-300 cursor-pointer rounded-xl"
 						onClick={() => jobsApplicationsController.exportDataAsCSV()}
 					>
+						<p className="glass p-3 py-2 rounded-full opacity-100 md:opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+							Export CSV
+						</p>
 						<div className="glass p-0.5 rounded-full cursor-pointer">
 							<div className="p-2.5 rounded-full transition duration-300 group-hover:bg-white group-hover:text-gray-900">
 								<LuFileSpreadsheet className="text-lg" />
 							</div>
 						</div>
-						<p className="glass p-3 py-2 rounded-full opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
-							Export CSV
-						</p>
 					</li>
 				</ul>
 			</div>
