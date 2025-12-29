@@ -26,7 +26,6 @@ export default function ContextProvider({
 				input.value = "";
 			} catch (error) {
 				if (error instanceof Error) {
-					console.log(error.message);
 					input.value = "";
 				}
 			}
