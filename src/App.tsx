@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Job from "./pages/Job";
 import Header from "./components/Header";
 import EditJob from "./pages/EditJob";
+import Home from "./pages/Home";
+import Job from "./pages/Job";
 import NewJob from "./pages/NewJob";
 
 export default function App(): ReactNode {
