@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home";
-import Job from "./Pages/Job";
+import Home from "./pages/Home";
+import Job from "./pages/Job";
 import Header from "./components/Header";
-import EditJob from "./Pages/EditJob";
-import NewJob from "./Pages/NewJob";
+import EditJob from "./pages/EditJob";
+import NewJob from "./pages/NewJob";
 
 export default function App(): ReactNode {
 	return (
